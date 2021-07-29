@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE beans PUBLIC "-//SPRING//DTD BEAN 2.0//EN" "http://www.springframework.org/dtd/spring-beans-2.0.dtd" >
+<beans>
+    <!-- Lab2 Ex1 Task 2-2 Start -->
+	<bean id="productA" class="lab2.ex1.Product">
+		<property name="productId" value="10001"></property>
+		<property name="name" value="dog"></property>
+		<property name="description" value="a dog"></property>
+	</bean>
+	<bean id="productB" class="lab2.ex1.Product">
+		<property name="productId" value="10002"></property>
+		<property name="name" value="cat"></property>
+		<property name="description" value="a cat"></property>
+	</bean>
+	<!-- Lab2 Ex1 Task 2-2 End -->
+    <!-- Lab2 Ex1 Task 4 Start -->
+	<bean id="viewer1" class="lab2.ex1.SetterInjectionProductViewer">
+		<property name="product">
+			<ref bean="productA"></ref>
+		</property>
+	</bean>
+    <!-- Lab2 Ex1 Task 4 End -->
+    <!-- Lab2 Ex1 Task 5 Start -->
+	<bean id="viewer2" class="lab2.ex1.ConstructorInjectionProductViewer">
+		<constructor-arg ref="productB"></constructor-arg>
+	</bean>
+    <!-- Lab2 Ex1 Task 5 End -->
+</beans>

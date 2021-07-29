@@ -1,0 +1,19 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:amq="http://activemq.org/config/1.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://activemq.org/config/1.0 http://people.apache.org/repository/org.apache.activemq/xsds/activemq-core-4.1-SNAPSHOT.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- add your config here -->
+	<bean id="jmsFactory" class="org.springframework.jndi.JndiObjectFactoryBean"
+				p:jndiName="jms/topicConnectionFactory"/>
+				
+	<bean id="myTopic" class="org.springframework.jndi.JndiObjectFactoryBean"
+				p:jndiName="jms/MyTopic"/>
+				
+	<bean id="jmst" class="org.springframework.jms.core.JmsTemplate"
+			p:connectionFactory-ref="jmsFactory"
+			p:defaultDestination-ref="myTopic"/>
+</beans>
+
